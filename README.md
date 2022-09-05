@@ -32,9 +32,11 @@ Ou utilize um ambiente de desenvolvimento que contenha maior parte das ferrament
 
 ## Como rodar a aplicação
 
-- Na pasta raíz da sua aplicação execute o comando: composer install
-- Em seguida inicie um servidor de desenvolvimento de testes local através da ferramenta do Laravel (Artisan) com o comando: php artisan serve
-- Vá até o Postman e inicie uma nova guia com o protocolo desejado:
+- Copie o arquivo `.env.example` e o renomeie para `.env`
+- Crie um banco MYSQL com o nome `apiweb` e adicione como variável de ambiente no arquivo `.env`
+- Na pasta raíz da sua aplicação execute o comando: `composer install`
+- Em seguida inicie um servidor de desenvolvimento local através do comando: `php artisan serve`
+- Vá até o Postman e inicie uma nova guia com o protocolo desejado
 
 # Rotas 
 
@@ -42,15 +44,34 @@ Ou utilize um ambiente de desenvolvimento que contenha maior parte das ferrament
 
 POST:
 - localhost/api/register (Para cadastrar um novo usuário e ter acesso às funcionalidades da aplicação) 
-* Dados requeridos: name, email, password
+- Body:
+```
+{
+    "name": "Breno Stacheski",
+    "email": "brenostc@teste5.com",
+    "password": "123456"
+}
+```
 
 - localhost/api/login (Para autenticar usuário existente no banco de dados e receber acesso aos métodos)
+- Body:
+```
+{
+    "email": "brenostc@teste5.com",
+    "password": "123456"
+}
+```
 
 ## Ingredientes
 
 POST:
-- Tipo: string
 - localhost/api/ingredient (Se quiser cadastrar um novo ingrediente)
+- Body:
+```
+{
+    "name": "SAL"
+}
+```
 
 
 GET:
@@ -65,8 +86,23 @@ DELETE:
 ## Receitas
 
 POST:
-- Tipo: string
 - localhost/api/recipe (Para cadastrar uma nova receita no banco)
+- Body:
+
+```
+{
+    "name": "BOLO DE FUBÁ",
+    "preparation_mode": "BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)",
+    "time": "5",
+    "ingredients": [
+        "AÇUCAR",
+        "OVO",
+        "OLEO",
+        "FARINHA",
+        "MANTEIGA"
+    ]
+}
+```
 
 GET:
 - Tipo: integer
