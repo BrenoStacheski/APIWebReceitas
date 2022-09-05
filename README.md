@@ -1,64 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">API - Receitas</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center">O objetivo dessa API é criar uma aplicação capaz de criar, editar, atualizar e deletar receitas inseridas no banco de dados, similar à um site de receitas.</p>
 
-## About Laravel
+<h4 align="center"> 
+	API atualmente em desenvolvimento...
+</h4>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [x] Registro e login de usuários com token de segurança
+- [x] Cadastro de receita
+- [x] Cadastro de ingredientes
+- [x] Listagem de ingredientes
+- [x] Listagem de receitas
+- [x] Exclusão de receitas/ingredientes
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Pré-requisitos
 
-## Learning Laravel
+Antes de começar você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+- Composer - versão 2+
+- PHP - versão 7.4+
+- Laravel - versão 8+
+- MYSQL - versão 5.8+
+- Um editor de códigos (VSCode) ou IDE (PHPStorm)
+- Plataforma para testar API's (Postman)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ou utilize um ambiente de desenvolvimento que contenha maior parte das ferramentas utilizadas:
+- Laragon
+- XAMPP
+- WAMP 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Como rodar a aplicação
 
-## Laravel Sponsors
+- Na pasta raíz da sua aplicação execute o comando: composer install
+- Em seguida inicie um servidor de desenvolvimento de testes local através da ferramenta do Laravel (Artisan) com o comando: php artisan serve
+- Vá até o Postman e inicie uma nova guia com o protocolo desejado:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Rotas 
 
-### Premium Partners
+## Login / Register
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+POST:
+- localhost/api/register (Para cadastrar um novo usuário e ter acesso às funcionalidades da aplicação) 
+* Dados requeridos: name, email, password
 
-## Contributing
+- localhost/api/login (Para autenticar usuário existente no banco de dados e receber acesso aos métodos)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Ingredientes
 
-## Code of Conduct
+POST:
+- Tipo: string
+- localhost/api/ingredient (Se quiser cadastrar um novo ingrediente)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+GET:
+- Tipo: string
+- localhost/api/ingredient/id (Para buscar um ingrediente armazenado no banco de dados)
+- localhost/api/ingredients (Para buscar todos os ingredientes armazenados no banco de dados)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+DELETE:
+- Tipo: integer
+- localhost/api/ingredient/id (Para excluir um ingrediente do banco de dados)
 
-## License
+## Receitas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+POST:
+- Tipo: string
+- localhost/api/recipe (Para cadastrar uma nova receita no banco)
+
+GET:
+- Tipo: integer
+- localhost/api/recipes (Para buscar todas as receitas cadastradas no banco de dados)
+- localhost/api/recipe/id (Para buscar uma receita cadastrada no banco de dados)
+- localhost/api/recipes/list (Para listar as receitas cadastradas no banco através do input de ingredientes fornecido)
+
+PUT:
+- Tipo: integer
+- localhost/api/recipe/id (Para editar uma receita existente)
+
+DELETE:
+- Tipo: integer
+- localhost/api/recipe/id (Para excluir uma receita do banco de dados)
+
+# Ou: Utilize minha collection no Postman
+
+Localizado na raíz do projeto App\Vendor
+- APIWeb.postman_collection.json
+
+# Autor: [Breno Stacheski](https://github.com/BrenoStacheski)
+
