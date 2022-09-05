@@ -120,8 +120,7 @@ DELETE:
 
 # Ou: Utilize minha collection no Postman
 
-Localizado na raíz do projeto App\Vendor
-- APIWeb.postman_collection.json
+Localizado na raíz do projeto pelo arquivo `APIWeb.postman_collection.json`
 
 # Autor: [Breno Stacheski](https://github.com/BrenoStacheski)
 
