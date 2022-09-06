@@ -31,6 +31,7 @@ Ou utilize um ambiente de desenvolvimento que contenha maior parte das ferrament
 - Copie o arquivo `.env.example` e o renomeie para `.env`
 - Crie um banco MYSQL com o nome `apiweb` e adicione como variável de ambiente no arquivo `.env`
 - Na pasta raíz da sua aplicação execute o comando: `composer install`
+- Rode as migrations para carregar as tabelas no banco de dados com o comando `php artisan migrate`
 - Em seguida inicie um servidor de desenvolvimento local através do comando: `php artisan serve`
 - Vá até o Postman e inicie uma nova guia com o protocolo desejado
 
@@ -57,6 +58,7 @@ POST:
     "password": "123456"
 }
 ```
+### REMINDER: NÃO ESQUEÇA DE CAPTURAR O TOKEN DE RETORNO E EM SEGUIDA AUTENTICAR SEU LOGIN ATRAVÉS DA ABA 'AUTH' - BEARER TOKEN! CASO NÃO FAÇA ISSO TODAS AS REQUESTS LHE DARÃO RETORNO "NÃO AUTENTICADO".
 
 ## Ingredientes
 
@@ -110,6 +112,8 @@ DELETE:
 - `localhost/api/recipe/:ID` (Para excluir uma receita do banco de dados)
 
 # Ou: Utilize minha collection no Postman
+
+### REMINDER: CASO OPTE POR USAR A COLLECTION NÃO ESQUEÇA DE ALTERAR A ID DA URL PARA SEU CASO (ID'S CRIADOS POR VOCÊ) POIS ESTÃO CARREGADAS COM O ID DA MÁQUINA DO AUTOR.
 
 Localizado na raíz do projeto pelo arquivo `APIWeb.postman_collection.json`
 
