@@ -11,7 +11,7 @@ class RecipeController extends Controller
 {
     public function store(Request $request)
     {
-        $recipe = $request->validate([
+            $request->validate([
             'name' => ['required', 'string'],
             'preparation_mode' => ['required', 'string'],
             'time' => ['required', 'integer'],
@@ -50,7 +50,7 @@ class RecipeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $recipe = $request->validate([
+            $request->validate([
             'name' => ['required', 'string'],
             'preparation_mode' => ['required', 'string'],
             'time' => ['required', 'integer'],
@@ -126,8 +126,47 @@ class RecipeController extends Controller
         return response($recipe, 200);
     }
 
-    public function listCompatible(Request $request, $id)
+    public function listCompatibleRecipe(Request $request)
     {
-        
+            $request->validate([
+            'ingredients' => ['required', 'array'],
+            'ingredients.*' => ['required','string']
+        ]);
+
+        // VERIFICA SE OS INGREDIENTES SÃO NULOS
+        foreach($request->ingredients as $nomeDoingredient) {
+            // PEGO DO BANCO EM RELAÇÃO A STRING PASSADA PELO USUARIO
+            $ingredientRequest = Ingredient::where('name', $nomeDoingredient)->first();
+
+            if ($ingredientRequest == null) {
+                return response()->json([
+                    "message" => "It was not possible to find the ingredient: " . $nomeDoingredient . "! Please insert another one."
+                ], 400);
+            }
+        }
+
+        // CRIA A PILHA DE RETORNO
+        $varAuxiliar = [];
+
+        // PERCORRE OS INGREDIENTES
+        foreach($request->ingredients as $nomeDoingredient) {
+            // BUSCA O INGREDIENTE
+            $ingredientRequest = Ingredient::where('name', $nomeDoingredient)->first();
+            // BUSCA AS RECEITAS DO INGREDIENTE
+            $RecipeIngredient = RecipeIngredient::where('ingredient_id', $ingredientRequest->id)->get();
+            // CRIA UMA "PILHA" AUXILIAR
+            $varAux = [];
+            // ARMAZENA OS RECIPE_ID NA PILHA
+            foreach($RecipeIngredient as $ri) {
+                array_push($varAux, $ri->recipe_id);
+            }
+            // BUSCA AS RECIPES DE ACORDO COM OS RECIPE_ID
+            $Recipes = Recipe::wherein('id', $varAux)->get();
+            // JOGA AS RECEITAS DO MEU INGREDIENTE NA PILHA DE RETORNO
+            array_push($varAuxiliar, [
+                $nomeDoingredient => $Recipes
+            ]);
+        }
+        return response()->json($varAuxiliar);
     }
 }

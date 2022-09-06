@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('recipe/{id}', 'RecipeController@destroyRecipe');
     Route::get('recipe/{id}', 'RecipeController@getRecipe');
     Route::get('recipes', 'RecipeController@getAllRecipes');
+    Route::get('recipes/list', 'RecipeController@listCompatibleRecipe');
 });
 
 Route::post('/register', 'UserController@store');

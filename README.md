@@ -2,10 +2,6 @@
 
 <p align="center">O objetivo dessa API é criar uma aplicação capaz de criar, editar, atualizar e deletar receitas inseridas no banco de dados, similar à um site de receitas.</p>
 
-<h4 align="center"> 
-	API atualmente em desenvolvimento...
-</h4>
-
 ## Features
 
 - [x] Registro e login de usuários com token de segurança
@@ -43,7 +39,7 @@ Ou utilize um ambiente de desenvolvimento que contenha maior parte das ferrament
 ## Login / Register
 
 POST:
-- localhost/api/register (Para cadastrar um novo usuário e ter acesso às funcionalidades da aplicação) 
+- `localhost/api/register` (Para cadastrar um novo usuário e ter acesso às funcionalidades da aplicação) 
 - Body:
 ```
 {
@@ -53,7 +49,7 @@ POST:
 }
 ```
 
-- localhost/api/login (Para autenticar usuário existente no banco de dados e receber acesso aos métodos)
+- `localhost/api/login` (Para autenticar usuário existente no banco de dados e receber acesso aos métodos)
 - Body:
 ```
 {
@@ -65,7 +61,7 @@ POST:
 ## Ingredientes
 
 POST:
-- localhost/api/ingredient (Se quiser cadastrar um novo ingrediente)
+- `localhost/api/ingredient` (Se quiser cadastrar um novo ingrediente)
 - Body:
 ```
 {
@@ -75,18 +71,16 @@ POST:
 
 
 GET:
-- Tipo: string
-- localhost/api/ingredient/id (Para buscar um ingrediente armazenado no banco de dados)
-- localhost/api/ingredients (Para buscar todos os ingredientes armazenados no banco de dados)
+- `localhost/api/ingredient/:ID` (Para buscar um ingrediente armazenado no banco de dados)
+- `localhost/api/ingredients` (Para buscar todos os ingredientes armazenados no banco de dados)
 
 DELETE:
-- Tipo: integer
-- localhost/api/ingredient/id (Para excluir um ingrediente do banco de dados)
+- `localhost/api/ingredient/:ID` (Para excluir um ingrediente do banco de dados)
 
 ## Receitas
 
 POST:
-- localhost/api/recipe (Para cadastrar uma nova receita no banco)
+- `localhost/api/recipe` (Para cadastrar uma nova receita no banco)
 - Body:
 
 ```
@@ -105,18 +99,15 @@ POST:
 ```
 
 GET:
-- Tipo: integer
-- localhost/api/recipes (Para buscar todas as receitas cadastradas no banco de dados)
-- localhost/api/recipe/id (Para buscar uma receita cadastrada no banco de dados)
-- localhost/api/recipes/list (Para listar as receitas cadastradas no banco através do input de ingredientes fornecido)
+- `localhost/api/recipes` (Para buscar todas as receitas cadastradas no banco de dados)
+- `localhost/api/recipe/:ID` (Para buscar uma receita cadastrada no banco de dados)
+- `localhost/api/recipes/list` (Para listar as receitas cadastradas no banco através do input de ingredientes fornecido)
 
 PUT:
-- Tipo: integer
-- localhost/api/recipe/id (Para editar uma receita existente)
+- `localhost/api/recipe/:ID` (Para editar uma receita existente)
 
 DELETE:
-- Tipo: integer
-- localhost/api/recipe/id (Para excluir uma receita do banco de dados)
+- `localhost/api/recipe/:ID` (Para excluir uma receita do banco de dados)
 
 # Ou: Utilize minha collection no Postman
 

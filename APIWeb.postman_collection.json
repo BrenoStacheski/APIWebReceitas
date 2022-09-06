@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "f23cb6b4-77c1-4d6f-a4c2-54ce29e7defc",
+		"name": "APIWeb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23133270"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Breno Stacheski\",\r\n    \"email\": \"brenostc@teste5.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"brenostc@teste5.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar Ingrediente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"SAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/ingredient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar Receita",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOLO DE FUBÁ\",\r\n    \"preparation_mode\": \"BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)\",\r\n    \"time\": \"5\",\r\n    \"ingredients\": [\r\n        \"AÇUCAR\",\r\n        \"OVO\",\r\n        \"OLEO\",\r\n        \"FARINHA\",\r\n        \"MANTEIGA\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Receita",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOLO DE FUBÁ\",\r\n    \"preparation_mode\": \"BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)\",\r\n    \"time\": \"5\",\r\n    \"ingredients\": [\r\n        \"AÇUCAR\",\r\n        \"OVO\",\r\n        \"OLEO\",\r\n        \"FARINHA\",\r\n        \"MANTEIGA\",\r\n        \"FARINHA DE FUBÁ\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipe/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipe",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Receita",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOLO DE FUBÁ\",\r\n    \"preparation_mode\": \"BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)\",\r\n    \"time\": \"5\",\r\n    \"ingredients\": [\r\n        \"AÇUCAR\",\r\n        \"OVO\",\r\n        \"OLEO\",\r\n        \"FARINHA\",\r\n        \"MANTEIGA\",\r\n        \"FARINHA DE FUBÁ\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipe/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipe",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Única Receita",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOLO DE FUBÁ\",\r\n    \"preparation_mode\": \"BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)\",\r\n    \"time\": \"5\",\r\n    \"ingredients\": [\r\n        \"AÇUCAR\",\r\n        \"OVO\",\r\n        \"OLEO\",\r\n        \"FARINHA\",\r\n        \"MANTEIGA\",\r\n        \"FARINHA DE FUBÁ\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipe/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipe",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Receitas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOLO DE FUBÁ\",\r\n    \"preparation_mode\": \"BATA A MASSA POR 6 MINUTOS E LEVE ATÉ O FORNO PRÉ-AQUECIDO POR 35 MINUTOS EM FOGO MÉDIO (180C)\",\r\n    \"time\": \"5\",\r\n    \"ingredients\": [\r\n        \"AÇUCAR\",\r\n        \"OVO\",\r\n        \"OLEO\",\r\n        \"FARINHA\",\r\n        \"MANTEIGA\",\r\n        \"FARINHA DE FUBÁ\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista as Receitas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ingredients\": [\r\n        \"OVO\",\r\n        \"CARNE\",\r\n        \"OLEO\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/recipes/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recipes",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Ingredientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"SAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Único Ingrediente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"SAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/ingredient/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ingredient",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Ingrediente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "GceZmWo6zFyGJGfWE1fnHX7K0WNvHniEM0WsyAnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"SAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/ingredient/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ingredient",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
