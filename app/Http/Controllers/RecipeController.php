@@ -134,13 +134,13 @@ class RecipeController extends Controller
         ]);
 
         // VERIFICA SE OS INGREDIENTES SÃO NULOS
-        foreach($request->ingredients as $nomeDoingredient) {
+        foreach($request->ingredients as $ingredientName) {
             // PEGO DO BANCO EM RELAÇÃO A STRING PASSADA PELO USUARIO
-            $ingredientRequest = Ingredient::where('name', $nomeDoingredient)->first();
+            $ingredientRequest = Ingredient::where('name', $ingredientName)->first();
 
             if ($ingredientRequest == null) {
                 return response()->json([
-                    "message" => "It was not possible to find the ingredient: " . $nomeDoingredient . "! Please insert another one."
+                    "message" => "It was not possible to find the ingredient: " . $ingredientName . "! Please insert another one."
                 ], 400);
             }
         }
@@ -149,22 +149,22 @@ class RecipeController extends Controller
         $varAuxiliar = [];
 
         // PERCORRE OS INGREDIENTES
-        foreach($request->ingredients as $nomeDoingredient) {
+        foreach($request->ingredients as $ingredientName) {
             // BUSCA O INGREDIENTE
-            $ingredientRequest = Ingredient::where('name', $nomeDoingredient)->first();
+            $ingredientRequest = Ingredient::where('name', $ingredientName)->first();
             // BUSCA AS RECEITAS DO INGREDIENTE
             $RecipeIngredient = RecipeIngredient::where('ingredient_id', $ingredientRequest->id)->get();
             // CRIA UMA "PILHA" AUXILIAR
             $varAux = [];
             // ARMAZENA OS RECIPE_ID NA PILHA
-            foreach($RecipeIngredient as $ri) {
-                array_push($varAux, $ri->recipe_id);
+            foreach($RecipeIngredient as $recipeID) {
+                array_push($varAux, $recipeID->recipe_id);
             }
             // BUSCA AS RECIPES DE ACORDO COM OS RECIPE_ID
             $Recipes = Recipe::wherein('id', $varAux)->get();
             // JOGA AS RECEITAS DO MEU INGREDIENTE NA PILHA DE RETORNO
             array_push($varAuxiliar, [
-                $nomeDoingredient => $Recipes
+                $ingredientName => $Recipes
             ]);
         }
         return response()->json($varAuxiliar);
